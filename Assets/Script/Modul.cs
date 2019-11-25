@@ -16,7 +16,7 @@ public class Modul : MonoBehaviour
     //Hints for the actual lesson
     public List<string> listOfHints = new List<string>();
     //List of goals for each lesson
-    public List<string> listOfGoals = new List<string>();
+    public List<Goal> listOfGoals = new List<Goal>();
     
     void initModul()
     {
@@ -33,11 +33,10 @@ public class Modul : MonoBehaviour
         listOfHints.Add("");
         listOfHints.Add("");
         //Init the goals
-        listOfGoals.Add("Read the text and click Next");
-        listOfGoals.Add("Sort the Bubbles in the right order");
-        listOfGoals.Add("Programm an Loop for sorting the bubbles");
-        listOfGoals.Add("Read the text and click finish");
-        
+        listOfGoals.Add(new Goal("Read the text and click Next",0));
+        listOfGoals.Add(new Goal("Sort the Bubbles in the right order",1));
+        listOfGoals.Add(new Goal("Programm an Loop for sorting the bubbles",1));
+        listOfGoals.Add(new Goal("Read the text and click finish",0));
     }
 
     // Start is called before the first frame update

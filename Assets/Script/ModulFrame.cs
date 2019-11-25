@@ -11,15 +11,27 @@ public class ModulFrame : MonoBehaviour
     public TextMeshPro hints = null;
 
     public TextMeshPro goal = null;
-    
-    void loadSection()
+
+    public Container container = null;
+    public void loadSection()
     {
         //Loading the actual Hint
         hints.SetText(Bubblesort.listOfHints[Bubblesort.stageOfLesson]);
         //Loading the Container
         Bubblesort.listOfInteractableObjects[0].initContainer();
         //Loading the goal
-        goal.SetText(Bubblesort.listOfGoals[Bubblesort.stageOfLesson]);
+        goal.SetText(Bubblesort.listOfGoals[Bubblesort.stageOfLesson].GoalDescription);
+    }
+
+    public bool checkResult()
+    {
+        bool success = false;
+        return success;
+    }
+
+    void initModule()
+    {
+        loadSection();
     }
     
     void redirectToMainMenu()
