@@ -22,7 +22,7 @@ public class Container : MonoBehaviour
     public void initContainer()
     {
         //Adding the numbers to the bubbles
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             int x = Random.Range(1, 10);
             numbersForBubbles.Add(x);   
@@ -30,7 +30,7 @@ public class Container : MonoBehaviour
 
         //Initiate the Text Components for showing the right numbers
         int count = 0;
-        foreach (TextMeshPro textMeshPro in GetComponents<TextMeshPro>())
+        foreach (TextMeshPro textMeshPro in GetComponentsInChildren<TextMeshPro>())
         {
             textMeshPro.SetText(numbersForBubbles[count].ToString());
             containerTextNumbers.Add(textMeshPro);
@@ -89,7 +89,7 @@ public class Container : MonoBehaviour
 
     void Start()
     {
-        
+        initContainer();
     }
 
     // Update is called once per frame
