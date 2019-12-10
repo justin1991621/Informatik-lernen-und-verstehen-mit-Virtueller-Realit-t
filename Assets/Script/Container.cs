@@ -89,7 +89,7 @@ public class Container : MonoBehaviour
 
     void Start()
     {
-        initContainer();
+        
     }
 
     // Update is called once per frame

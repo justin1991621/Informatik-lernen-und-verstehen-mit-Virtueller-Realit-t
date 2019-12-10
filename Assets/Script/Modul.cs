@@ -18,31 +18,31 @@ public class Modul : MonoBehaviour
     //List of goals for each lesson
     public List<Goal> listOfGoals = new List<Goal>();
     
-    void initModul()
+    public void initModul()
     {
         //Inits the objects
         listOfInteractableObjects.Add(prefabContainer);
         //Init the names
         listOfSections.Add("Einführung");
-        listOfSections.Add("Selber sortieren");
-        listOfSections.Add("Selbst Programmieren");
+        listOfSections.Add("Automatisch sortieren");
+        listOfSections.Add("Selbst sortieren");
         listOfSections.Add("Zeitliche Komponente");
         //Inits the hints 
-        listOfHints.Add("");
-        listOfHints.Add("");
-        listOfHints.Add("");
-        listOfHints.Add("");
+        listOfHints.Add("Bubblesort is the easiest sorting alogrithm u simply change the neighbours");
+        listOfHints.Add("Watch like the numbers get sorted by simply changing the neigbours");
+        listOfHints.Add("Grab the bubbles with ur Hand and sort them");
+        listOfHints.Add("Bubblesort is not the fastest sorting algorithm but it is easy to understand and implement in code");
         //Init the goals
-        listOfGoals.Add(new Goal("Read the text and click Next",0));
-        listOfGoals.Add(new Goal("Sort the Bubbles in the right order",1));
-        listOfGoals.Add(new Goal("Programm an Loop for sorting the bubbles",1));
+        listOfGoals.Add(new Goal("Read the text and grab next Next",0));
+        listOfGoals.Add(new Goal("Watch the bubbles get sorted",1));
+        listOfGoals.Add(new Goal("Sort the bubbles ge sorted from right to left ascending",1));
         listOfGoals.Add(new Goal("Read the text and click finish",0));
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        initModul();
+        
     }
 
     // Update is called once per frame

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goal : MonoBehaviour
+public class Goal
 {
     //Class for an goal of the section
     //There are 2 types of goals at the moment
