@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.UNetWeaver;
 using UnityEngine;
 using VRTK;
 
@@ -43,10 +42,14 @@ public class ModulFrame : MonoBehaviour
      * Listener für dei Bubbles erstellen
      * vielleicht hier einfach die maximale Grabdistanz darf wert nicht überschreiten
      */
-    public bool checkResult()
+    public void checkResult()
     {
         bool success = false;
-        return success;
+        success = true;
+        if (success == true)
+        {
+            this.Bubblesort.stageOfLesson = this.Bubblesort.stageOfLesson + 1;
+        }
     }
 
 
@@ -62,7 +65,34 @@ public class ModulFrame : MonoBehaviour
     }
     void Start()
     {
+        nextButton.InteractableObjectUsed += new InteractableObjectEventHandler(NextButtonUsed);
+        checkButton.InteractableObjectUsed += new InteractableObjectEventHandler(CheckButtonUsed);
+        nextButton.InteractableObjectUnused += new InteractableObjectEventHandler(NextButtonUnused);
+        checkButton.InteractableObjectUnused += new InteractableObjectEventHandler(CheckButtonUnused);
+        //GetComponent<VRTK_InteractableObject>().InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
+        //GetComponent<VRTK_SnapDropZone>().ObjectSnappedToDropZone += new SnapDropZoneEventHandler();
+        //GetComponent<VRTK_SnapDropZone>().ObjectUnsnappedFromDropZone += new SnapDropZoneEventHandler();
         initModule();
+    }
+
+    private void CheckButtonUnused(object sender, InteractableObjectEventArgs e)
+    {
+       checkButtonZone.ForceSnap(checkButton.gameObject);
+    }
+
+    private void NextButtonUnused(object sender, InteractableObjectEventArgs e)
+    {
+       nextButtonZone.ForceSnap(nextButton.gameObject);
+    }
+
+    private void CheckButtonUsed(object sender, InteractableObjectEventArgs e)
+    {
+        checkResult();
+    }
+
+    private void NextButtonUsed(object sender, InteractableObjectEventArgs e)
+    {
+        this.Bubblesort.stageOfLesson = this.Bubblesort.stageOfLesson + 1;
     }
 
     // Update is called once per frame

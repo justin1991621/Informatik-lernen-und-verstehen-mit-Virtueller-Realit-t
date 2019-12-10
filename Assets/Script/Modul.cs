@@ -28,7 +28,8 @@ public class Modul : MonoBehaviour
         listOfSections.Add("Selbst sortieren");
         listOfSections.Add("Zeitliche Komponente");
         //Inits the hints 
-        listOfHints.Add("Bubblesort is the easiest sorting alogrithm u simply change the neighbours");
+        listOfHints.Add("Bubblesort is the easiest sorting " +
+                        "alogrithm u simply change the neighbours");
         listOfHints.Add("Watch like the numbers get sorted by simply changing the neigbours");
         listOfHints.Add("Grab the bubbles with ur Hand and sort them");
         listOfHints.Add("Bubblesort is not the fastest sorting algorithm but it is easy to understand and implement in code");
