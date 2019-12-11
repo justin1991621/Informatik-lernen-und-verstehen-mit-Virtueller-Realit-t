@@ -8,6 +8,7 @@ public class ModulFrame : MonoBehaviour
 {
     //Bubblesort Module
     public Modul Bubblesort = null;
+    public Modul Quicksort = null;
 
     public TextMeshPro hints = null;
 
@@ -23,35 +24,44 @@ public class ModulFrame : MonoBehaviour
     public VRTK_SnapDropZone checkButtonZone = null;
     public VRTK_InteractableObject checkButton = null;
     public TextMeshPro checkButtonText = null;
-    public void loadSection()
+    public void loadSection(Modul modul)
     {
         //Loading the section title
-        section.SetText(Bubblesort.listOfSections[Bubblesort.stageOfLesson]);
+        section.SetText(modul.listOfSections[modul.stageOfLesson]);
         //Loading the actual Hint
-        hints.SetText(Bubblesort.listOfHints[Bubblesort.stageOfLesson]);
+        hints.SetText(modul.listOfHints[modul.stageOfLesson]);
         //Loading the Container
-        Bubblesort.listOfInteractableObjects[0].initContainer();
+        modul.listOfInteractableObjects[0].initContainer();
         //Loading the goal
-        goal.SetText(Bubblesort.listOfGoals[Bubblesort.stageOfLesson].GoalDescription);
+        goal.SetText(modul.listOfGoals[modul.stageOfLesson].GoalDescription);
     }
-    //todo
-    /**
-     * Listener für das graben der beiden Button erstellen
-     * Dann die jeweiligen Funktionen ausführen
-     *
-     * Listener für dei Bubbles erstellen
-     * vielleicht hier einfach die maximale Grabdistanz darf wert nicht überschreiten
-     */
-    public void checkResult()
+    public bool checkResult()
     {
         bool success = false;
         success = true;
-        if (success == true)
-        {
-            this.Bubblesort.stageOfLesson = this.Bubblesort.stageOfLesson + 1;
-        }
+        return success;
     }
 
+    public void showBubbleSort()
+    {
+        
+    }
+
+    public void showQuickSort()
+    {
+        
+    }
+
+    public void switchBubbles()
+    {
+        
+    }
+
+    public bool checkTurn()
+    {
+        bool valid = false;
+        return valid;
+    }
 
     void initModule()
     {
@@ -65,6 +75,7 @@ public class ModulFrame : MonoBehaviour
     }
     void Start()
     {
+        //Muss die Intialisierung der beiden Module erarbeiten (Unity Tags für jeden Sortieralgorithmus
         nextButton.InteractableObjectUsed += new InteractableObjectEventHandler(NextButtonUsed);
         checkButton.InteractableObjectUsed += new InteractableObjectEventHandler(CheckButtonUsed);
         nextButton.InteractableObjectUnused += new InteractableObjectEventHandler(NextButtonUnused);
@@ -74,7 +85,7 @@ public class ModulFrame : MonoBehaviour
         //GetComponent<VRTK_SnapDropZone>().ObjectUnsnappedFromDropZone += new SnapDropZoneEventHandler();
         initModule();
     }
-
+    //Muss erkennen von welchen Modul gerade ein Trigger ausgeführt wurde
     private void CheckButtonUnused(object sender, InteractableObjectEventArgs e)
     {
        checkButtonZone.ForceSnap(checkButton.gameObject);
