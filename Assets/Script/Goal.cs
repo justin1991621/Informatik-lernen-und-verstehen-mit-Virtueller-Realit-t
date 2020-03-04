@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Old class
+ */
 public class Goal
 {
     //Class for an goal of the section

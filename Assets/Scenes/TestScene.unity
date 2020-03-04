@@ -795,7 +795,8 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 3}
 --- !u!4 &764814717 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 458990, guid: 4f35fa249b5008c44ac2998be6f82d4d,
+    type: 3}
   m_PrefabInstance: {fileID: 764814716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &908180282
@@ -1132,7 +1133,7 @@ Transform:
   m_LocalPosition: {x: 1.815, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2103062357}
+  - {fileID: 2103062358}
   - {fileID: 764814717}
   m_Father: {fileID: 593446283}
   m_RootOrder: 0
@@ -1150,12 +1151,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 2103062363}
+  actualHeadset: {fileID: 2103062362}
+  actualLeftController: {fileID: 2103062361}
+  actualRightController: {fileID: 2103062360}
+  modelAliasLeftController: {fileID: 2103062359}
+  modelAliasRightController: {fileID: 2103062357}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -1914,8 +1915,45 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 11420968, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
---- !u!4 &2103062357 stripped
+--- !u!1 &2103062357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 192944, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2103062358 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103062359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 147176, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103062360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 159396, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103062361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 124034, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103062362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 189822, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103062356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2103062363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 146900, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
   m_PrefabInstance: {fileID: 2103062356}
   m_PrefabAsset: {fileID: 0}

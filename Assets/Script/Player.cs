@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * Class for an player old
+ */
 public class Player : MonoBehaviour
 {
     //Name of the player
