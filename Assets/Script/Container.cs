@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using VRTK;
 using Random = UnityEngine.Random;
@@ -17,6 +18,8 @@ public class Container : MonoBehaviour
     public VRTK_SnapDropZone drop7;
     public VRTK_SnapDropZone drop8;
 
+    public VRTK_SnapDropZone storageZone;
+
     public VRTK_InteractableObject fruit1;
     public VRTK_InteractableObject fruit2;
     public VRTK_InteractableObject fruit3;
@@ -32,9 +35,10 @@ public class Container : MonoBehaviour
 
     public Modul modul;
 
+    public GameObject TitleContainer;
     public GameObject HintContainer;
-
     public GameObject ResultContainer;
+    public GameObject NumberContainer;
     //Zones where the player can drop the bubbles
     public List<VRTK_SnapDropZone> dropZones = new List<VRTK_SnapDropZone>();
 
@@ -63,24 +67,41 @@ public class Container : MonoBehaviour
     //Init for the container
     public void initContainer()
     {
+        //Delete the Array
         numbersForBubbles.Clear();
+
+        //Setting the Textcontainer to default
+        TitleContainer.GetComponent<MeshRenderer>().enabled = true;
+        ResultContainer.GetComponent<MeshRenderer>().enabled = false;
+        HintContainer.GetComponent<MeshRenderer>().enabled = false;
+        NumberContainer.GetComponent<TextMeshPro>().SetText(numberOfNumbers.ToString());
         
         //Adding the numbers to the bubbles
         for (int i = 0; i < interactableObjects.Count; i++)
         {
-            float x = Random.Range(10, 20);
-            numbersForBubbles.Add((int) x);
-            Vector3 scale = new Vector3();
-            scale.x = x/10;
-            scale.y = x/10;
-            scale.z = x/10;
-            interactableObjects[i].GetComponent<Transform>().SetGlobalScale(scale);
+
             if (i >= numberOfNumbers)
             {
                 foreach (MeshRenderer mesh in interactableObjects[i].GetComponentsInChildren<MeshRenderer>())
                 {
                     mesh.enabled = false;
                 }
+                dropZones[i].enabled = false;
+            }
+            else
+            {
+                dropZones[i].enabled = true;
+                foreach (MeshRenderer mesh in interactableObjects[i].GetComponentsInChildren<MeshRenderer>())
+                {
+                    mesh.enabled = true;
+                }
+                float x = Random.Range(10, 20);
+                numbersForBubbles.Add((int) x);
+                Vector3 scale = new Vector3();
+                scale.x = x/10;
+                scale.y = x/10;
+                scale.z = x/10;
+                interactableObjects[i].GetComponent<Transform>().SetGlobalScale(scale);
             }
         }
         //Initiate the Text Components for showing the right numbers
@@ -110,15 +131,27 @@ public class Container : MonoBehaviour
                 return success;
             }
         }
+
+        HintContainer.GetComponent<MeshRenderer>().enabled = false;
+        ResultContainer.GetComponent<MeshRenderer>().enabled = true;
+
         return success;
     }
     //Function for switing the position between 2 Bubble
     //Bubble 1 will be changed with bubble 2
     public void switchPoitions(int bubble1, int bubble2)
      {
-         dropZones[bubble1].ForceUnsnap();
+         //Unsap the first Object
          dropZones[bubble2].ForceUnsnap();
+         //Snapping the first Object in the Storage Zone
+         storageZone.ForceSnap(interactableObjects[bubble1].gameObject);
+         //Unsnap the second object
+         dropZones[bubble1].ForceUnsnap();
+         //Snapping the first Object in the first zone
          dropZones[bubble1].ForceSnap(interactableObjects[bubble2].gameObject);
+         //Setting the Storage Zone to Clear
+         storageZone.ForceUnsnap();
+         //Snapping the first object to the other zone
          dropZones[bubble2].ForceSnap(interactableObjects[bubble1].gameObject);
      }
     //Function for showing the hints
@@ -148,6 +181,7 @@ public class Container : MonoBehaviour
     public void restartWithNewNumber(int number)
     {
         numberOfNumbers = number;
+        NumberContainer.GetComponent<TextMeshPro>().SetText(number.ToString());
         initContainer();
     }
 
